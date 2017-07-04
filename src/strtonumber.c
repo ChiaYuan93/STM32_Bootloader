@@ -4,8 +4,8 @@
 #include <string.h>
 
 int openHexFile(const char *path){
-  //unit32_t address;
-  //Static unit32_t upperAddress
+  // unit32_t address;
+  // Static unit32_t upperAddress;
   
   unsigned char hexData[1208];
   FILE *fp = fopen(path, "r");
@@ -23,3 +23,4 @@ int openHexFile(const char *path){
   fclose (fp);
   return 0; 
 }
+ 
