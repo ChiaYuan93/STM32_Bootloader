@@ -17,11 +17,9 @@
 :paths:
   :test:
   - test/**
-  - test/support
   :source:
   - src/**
-  :support:
-  - test/support
+  :support: []
   :include: []
   :test_toolchain_include: []
   :release_toolchain_include: []
@@ -67,10 +65,10 @@
   :testfail: ".fail"
   :dependencies: ".d"
 :unity:
-  :vendor_path: C:/Users/user/Desktop/STM32_BootLoader/vendor/ceedling/vendor
+  :vendor_path: C:/Vennie/Students/STM32_Bootloader/vendor/ceedling/vendor
   :defines: []
 :cmock:
-  :vendor_path: C:/Users/user/Desktop/STM32_BootLoader/vendor/ceedling/vendor
+  :vendor_path: C:/Vennie/Students/STM32_Bootloader/vendor/ceedling/vendor
   :defines: []
   :mock_prefix: mock_
   :when_no_prototypes: :warn
@@ -88,7 +86,7 @@
   :verbosity: 3
   :unity_helper: false
 :cexception:
-  :vendor_path: C:/Users/user/Desktop/STM32_BootLoader/vendor/ceedling/vendor
+  :vendor_path: C:/Vennie/Students/STM32_Bootloader/vendor/ceedling/vendor
   :defines: []
 :test_runner:
   :includes: []
@@ -181,7 +179,7 @@
   :arguments: []
 :plugins:
   :load_paths:
-  - C:/Users/user/Desktop/STM32_BootLoader/vendor/ceedling/plugins
+  - C:/Vennie/Students/STM32_Bootloader/vendor/ceedling/plugins
   - vendor/ceedling/plugins
   :enabled:
   - stdout_pretty_tests_report
