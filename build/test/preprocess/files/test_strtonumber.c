@@ -3,26 +3,18 @@
 #include "unity.h"
 
 
-void setUp(void)
-
-{
-
-}
+void setUp(void){}
 
 
 
-void tearDown(void)
-
-{
-
-}
+void tearDown(void){}
 
 
 
-void test_strtonumber_NeedToImplement(void)
+void test_open_Hex_file(void){
 
-{
+  openHexFile("C:/Users/user/ChangChiaYuan/STM32_Bootloader/SW4STM32/STM32_Bootloader/STM32_Bootloader.hex");
 
-    UnityIgnore( (("Need to Implement strtonumber")), (UNITY_UINT)(14));
+
 
 }

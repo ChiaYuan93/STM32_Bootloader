@@ -30,7 +30,7 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_strtonumber_NeedToImplement(void);
+extern void test_open_Hex_file(void);
 
 
 /*=======Test Reset Option=====*/
@@ -46,7 +46,7 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_strtonumber.c");
-  RUN_TEST(test_strtonumber_NeedToImplement, 12);
+  RUN_TEST(test_open_Hex_file, 8);
 
   return (UnityEnd());
 }
