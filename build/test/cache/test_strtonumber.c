@@ -12,132 +12,82 @@ void tearDown(void){}
 
 
 
-void test_fopen_non_existent_data_file_expect_to_fail() {
+void test_open_Hex_file_with_not_existing_file_adderss_result_should_return_0(void){
 
-  FILE *hexFile = fopen("data", "r");
+  int result;
 
-
-
-  if ((((hexFile)) == 
-
- ((void *)0)
-
- )) {} else {UnityFail( (((" Expected NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(14))));};
-
-}
+  result = openHexFile("data");
 
 
-
-void test_fopen_test_hex_data_file() {
-
-  FILE *hexFile = fopen("data/STM32_Bootloader.hex", "r");
-
-
-
-  if ((((hexFile)) != 
-
- ((void *)0)
-
- )) {} else {UnityFail( (((" Expected Non-NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(20))));};
-
-}
-
-
-
-void test_fgets_read_a_line() {
-
-  FILE *hexFile = fopen("data/STM32_Bootloader.hex", "r");
-
-  char *buf = readLine(hexFile);
-
-
-
-  if ((((buf)) != 
-
- ((void *)0)
-
- )) {} else {UnityFail( (((" Expected Non-NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(27))));};
-
-  UnityAssertEqualString((const char*)((":020000040800F2\n")), (const char*)((buf)), (
-
- ((void *)0)
-
- ), (UNITY_UINT)(28));
-
-}
-
-
-
-void test_verifyHexLine_given_HexWithWrongChecksum_hex_file_expect_0(void) {
-
-  FILE *hexFile = fopen("data/HexWithWrongChecksum.hex", "r");
-
-  char *line = readLine(hexFile);
-
-  int result = verifyHexLine(line);
 
   UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(35), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_verifyHexLine_given_HexWithCorrectChecksum_hex_file_expect_0(void) {
+void test_open_Hex_file_with_existing_file_adderss_result_should_return_1(void){
 
-  FILE *hexFile = fopen("data/HexWithCorrectChecksum.hex", "r");
+  int result;
 
-  char *line = readLine(hexFile);
+  result = openHexFile("Data/STM32_Bootloader.hex");
 
-  int result = verifyHexLine(line);
+
 
   UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(42), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(22), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
+void test_read_line_Hex_file_data_CheckSum_should_return_1(void){
+
+  FILE *fileHandler;
+
+  fileHandler = fopen("Data/STM32_Bootloader.hex", "r");
 
 
-void test_cexception() {
 
-  unsigned int ex;
-
+  char *data = readLine(fileHandler);
 
 
-  { jmp_buf *PrevFrame, NewFrame; unsigned int MY_ID = (0); PrevFrame = CExceptionFrames[MY_ID].pFrame; CExceptionFrames[MY_ID].pFrame = (jmp_buf*)(&NewFrame); CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); ; if (
 
- _setjmp3((
+  UnityAssertEqualString((const char*)((":020000040800F2\n")), (const char*)((data)), (
 
- NewFrame
+ ((void *)0)
 
- ), ((void *)0)) 
-
- == 0) { if (1) {
-
-    Throw(1);
-
-  } else { } CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); ; } else { ex = CExceptionFrames[MY_ID].Exception; (void)ex; ; } CExceptionFrames[MY_ID].pFrame = PrevFrame; ; } if (CExceptionFrames[(0)].Exception != (0x5A5A5A5A)) {
-
-    printf("Exception thrown!\n");
-
-  }
-
-
+ ), (UNITY_UINT)(31));
 
 }
 
 
 
-void test_open_Hex_file(void){
+void test_verify_Hex_line_data_should_return_data(void){
 
-  openHexFile("../data/STM32_Bootloader.hex");
+  FILE *fileHandler;
+
+  fileHandler = fopen("Data/STM32_Bootloader.hex", "r");
+
+  char *data = readLine(fileHandler);
+
+
+
+  int SumOfLine = verifyHexLine(data);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((SumOfLine)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_INT);
 
 }

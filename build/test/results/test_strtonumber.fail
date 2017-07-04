@@ -3,33 +3,23 @@
   :path: test
   :file: test_strtonumber.c
 :successes:
-- :test: test_fopen_non_existent_data_file_expect_to_fail
+- :test: test_open_Hex_file_with_not_existing_file_adderss_result_should_return_0
   :line: 11
   :message: ''
-- :test: test_fopen_test_hex_data_file
-  :line: 17
+- :test: test_open_Hex_file_with_existing_file_adderss_result_should_return_1
+  :line: 18
   :message: ''
-- :test: test_fgets_read_a_line
-  :line: 23
-  :message: ''
-- :test: test_cexception
-  :line: 46
-  :message: ''
-- :test: test_open_Hex_file
-  :line: 57
+- :test: test_read_line_Hex_file_data_CheckSum_should_return_1
+  :line: 25
   :message: ''
 :failures:
-- :test: test_verifyHexLine_given_HexWithWrongChecksum_hex_file_expect_0
-  :line: 35
-  :message: Expected 0 Was -1
-- :test: test_verifyHexLine_given_HexWithCorrectChecksum_hex_file_expect_0
-  :line: 42
-  :message: Expected 1 Was -1
+- :test: test_verify_Hex_line_data_should_return_data
+  :line: 41
+  :message: Expected 1 Was 4274976
 :ignores: []
 :counts:
-  :total: 7
-  :passed: 5
-  :failed: 2
+  :total: 4
+  :passed: 3
+  :failed: 1
   :ignored: 0
-:stdout:
-- Exception thrown!
+:stdout: []
