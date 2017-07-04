@@ -1,4 +1,5 @@
 ---
 - unity.h
 - strtonumber.h
+- CException.h
 - build/temp/_test_strtonumber.c

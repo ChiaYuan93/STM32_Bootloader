@@ -8,8 +8,11 @@
   Unity.NumberOfTests++; \
   if (TEST_PROTECT()) \
   { \
+    CEXCEPTION_T e; \
+    Try { \
       setUp(); \
       TestFunc(); \
+    } Catch(e) { TEST_ASSERT_EQUAL_HEX32_MESSAGE(CEXCEPTION_NONE, e, "Unhandled Exception!"); } \
   } \
   if (TEST_PROTECT()) \
   { \
@@ -22,6 +25,7 @@
 #include "unity.h"
 #include <setjmp.h>
 #include <stdio.h>
+#include "CException.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -30,6 +34,12 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
+extern void test_fopen_non_existent_data_file_expect_to_fail();
+extern void test_fopen_test_hex_data_file();
+extern void test_fgets_read_a_line();
+extern void test_verifyHexLine_given_HexWithWrongChecksum_hex_file_expect_0(void);
+extern void test_verifyHexLine_given_HexWithCorrectChecksum_hex_file_expect_0(void);
+extern void test_cexception();
 extern void test_open_Hex_file(void);
 
 
@@ -46,7 +56,13 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_strtonumber.c");
-  RUN_TEST(test_open_Hex_file, 8);
+  RUN_TEST(test_fopen_non_existent_data_file_expect_to_fail, 11);
+  RUN_TEST(test_fopen_test_hex_data_file, 17);
+  RUN_TEST(test_fgets_read_a_line, 23);
+  RUN_TEST(test_verifyHexLine_given_HexWithWrongChecksum_hex_file_expect_0, 31);
+  RUN_TEST(test_verifyHexLine_given_HexWithCorrectChecksum_hex_file_expect_0, 38);
+  RUN_TEST(test_cexception, 46);
+  RUN_TEST(test_open_Hex_file, 57);
 
   return (UnityEnd());
 }
