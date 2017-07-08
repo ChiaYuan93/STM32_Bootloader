@@ -7,15 +7,10 @@
 
 char buffer[1028];
 
-int openHexFile(char *path){
+FILE *openHexFile(char *path){
   FILE *fileHandler ;
   fileHandler = fopen(path, "r");
-    if(fileHandler == NULL){
-      return 0;
-    }
-    if(fileHandler != NULL){
-      return 1;
-    }
+  return fileHandler;
 }
 
 char *readLine(FILE *fileHandler){  
@@ -40,7 +35,7 @@ int verifyHexLine(char *line){
       storeHex = storeHex + hex;
     }
     else{
-      if((storeHex % 0x10) == 0){
+      if((storeHex & 0xff) == 0){
         return 1;
         break;
       }
@@ -56,6 +51,8 @@ int verifyHexLine(char *line){
   // and return the buffer containing the result
 uint8_t *convertHexLineToStrOfNum(char *line){
   
+  sscanf(&line[1], "%2c", &buffer[2]);
+  printf("%2c", line[2]);
 }
 
 // int getHexLineLength(uint8_t *strOfNum) {

@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 
-int openHexFile(char *fileHandler);
+FILE *openHexFile(char *fileHandler);
 char *readLine(FILE *fileHandler);
 int verifyHexLine(char *line);
 uint8_t *convertHexLineToStrOfNum(char *line);

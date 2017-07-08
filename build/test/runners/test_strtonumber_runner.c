@@ -34,11 +34,13 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_open_Hex_file_with_not_existing_file_adderss_result_should_return_0(void);
-extern void test_open_Hex_file_with_existing_file_adderss_result_should_return_1(void);
+extern void test_openHexfile_with_not_existing_file_adderss_result_should_return_0(void);
+extern void test_openHexfile_with_existing_file_adderss_result_should_return_exactAddress(void);
 extern void test_read_line_Hex_file_should_read_1_line_of_data(void);
 extern void test_verify_Hex_line_with_correct_check_sum_should_return_1(void);
 extern void test_verify_Hex_line_with_wrong_check_sum_should_return_0(void);
+extern void test_verify_Hex_line_with_wrong_Checksum_should_return_0(void);
+extern void test_verify_Hex_line_with_invalid_checksum_should_return_0(void);
 
 
 /*=======Test Reset Option=====*/
@@ -54,11 +56,13 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_strtonumber.c");
-  RUN_TEST(test_open_Hex_file_with_not_existing_file_adderss_result_should_return_0, 11);
-  RUN_TEST(test_open_Hex_file_with_existing_file_adderss_result_should_return_1, 18);
-  RUN_TEST(test_read_line_Hex_file_should_read_1_line_of_data, 25);
-  RUN_TEST(test_verify_Hex_line_with_correct_check_sum_should_return_1, 34);
+  RUN_TEST(test_openHexfile_with_not_existing_file_adderss_result_should_return_0, 11);
+  RUN_TEST(test_openHexfile_with_existing_file_adderss_result_should_return_exactAddress, 18);
+  RUN_TEST(test_read_line_Hex_file_should_read_1_line_of_data, 28);
+  RUN_TEST(test_verify_Hex_line_with_correct_check_sum_should_return_1, 37);
   RUN_TEST(test_verify_Hex_line_with_wrong_check_sum_should_return_0, 44);
+  RUN_TEST(test_verify_Hex_line_with_wrong_Checksum_should_return_0, 51);
+  RUN_TEST(test_verify_Hex_line_with_invalid_checksum_should_return_0, 58);
 
   return (UnityEnd());
 }
