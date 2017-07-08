@@ -20,11 +20,7 @@ void test_open_Hex_file_with_not_existing_file_adderss_result_should_return_0(vo
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (
-
- ((void *)0)
-
- ), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -38,17 +34,13 @@ void test_open_Hex_file_with_existing_file_adderss_result_should_return_1(void){
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (
-
- ((void *)0)
-
- ), (UNITY_UINT)(22), UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((result)), (((void *)0)), (UNITY_UINT)(22), UNITY_DISPLAY_STYLE_INT);
 
 }
 
 
 
-void test_read_line_Hex_file_data_CheckSum_should_return_1(void){
+void test_read_line_Hex_file_should_read_1_line_of_data(void){
 
   FILE *fileHandler;
 
@@ -60,21 +52,17 @@ void test_read_line_Hex_file_data_CheckSum_should_return_1(void){
 
 
 
-  UnityAssertEqualString((const char*)((":020000040800F2\n")), (const char*)((data)), (
-
- ((void *)0)
-
- ), (UNITY_UINT)(31));
+  UnityAssertEqualString((const char*)((":020000040800F2\n")), (const char*)((data)), (((void *)0)), (UNITY_UINT)(31));
 
 }
 
 
 
-void test_verify_Hex_line_data_should_return_data(void){
+void test_verify_Hex_line_with_correct_check_sum_should_return_1(void){
 
   FILE *fileHandler;
 
-  fileHandler = fopen("Data/STM32_Bootloader.hex", "r");
+  fileHandler = fopen("Data/HexWithCorrectChecksum.hex", "r");
 
   char *data = readLine(fileHandler);
 
@@ -84,10 +72,26 @@ void test_verify_Hex_line_data_should_return_data(void){
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((SumOfLine)), (
+  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((SumOfLine)), (((void *)0)), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_INT);
 
- ((void *)0)
+}
 
- ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_INT);
+
+
+void test_verify_Hex_line_with_wrong_check_sum_should_return_0(void){
+
+  FILE *fileHandler;
+
+  fileHandler = fopen("Data/HexWithWrongChecksum.hex", "r");
+
+  char *data = readLine(fileHandler);
+
+
+
+  int SumOfLine = verifyHexLine(data);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((SumOfLine)), (((void *)0)), (UNITY_UINT)(51), UNITY_DISPLAY_STYLE_INT);
 
 }

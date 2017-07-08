@@ -9,17 +9,20 @@
 - :test: test_open_Hex_file_with_existing_file_adderss_result_should_return_1
   :line: 18
   :message: ''
-- :test: test_read_line_Hex_file_data_CheckSum_should_return_1
+- :test: test_read_line_Hex_file_should_read_1_line_of_data
   :line: 25
   :message: ''
-:failures:
-- :test: test_verify_Hex_line_data_should_return_data
-  :line: 41
-  :message: Expected 1 Was 4274976
+- :test: test_verify_Hex_line_with_correct_check_sum_should_return_1
+  :line: 34
+  :message: ''
+- :test: test_verify_Hex_line_with_wrong_check_sum_should_return_0
+  :line: 44
+  :message: ''
+:failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 3
-  :failed: 1
+  :total: 5
+  :passed: 5
+  :failed: 0
   :ignored: 0
 :stdout: []

@@ -22,7 +22,7 @@ void test_open_Hex_file_with_existing_file_adderss_result_should_return_1(void){
   TEST_ASSERT_EQUAL(1, result);
 }
 
-void test_read_line_Hex_file_data_CheckSum_should_return_1(void){
+void test_read_line_Hex_file_should_read_1_line_of_data(void){
   FILE *fileHandler;
   fileHandler = fopen("Data/STM32_Bootloader.hex", "r");
   
@@ -31,14 +31,24 @@ void test_read_line_Hex_file_data_CheckSum_should_return_1(void){
   TEST_ASSERT_EQUAL_STRING(":020000040800F2\n", data);
 }
 
-void test_verify_Hex_line_data_should_return_data(void){
+void test_verify_Hex_line_with_correct_check_sum_should_return_1(void){
   FILE *fileHandler;
-  fileHandler = fopen("Data/STM32_Bootloader.hex", "r");
+  fileHandler = fopen("Data/HexWithCorrectChecksum.hex", "r");
   char *data = readLine(fileHandler);
   
   int SumOfLine = verifyHexLine(data);
   
   TEST_ASSERT_EQUAL(1, SumOfLine);
+}
+
+void test_verify_Hex_line_with_wrong_check_sum_should_return_0(void){
+  FILE *fileHandler;
+  fileHandler = fopen("Data/HexWithWrongChecksum.hex", "r");
+  char *data = readLine(fileHandler);
+  
+  int SumOfLine = verifyHexLine(data);
+  
+  TEST_ASSERT_EQUAL(0, SumOfLine);
 }
 
 
