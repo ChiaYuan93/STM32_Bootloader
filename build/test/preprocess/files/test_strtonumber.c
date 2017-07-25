@@ -54,13 +54,13 @@ void test_readLine_Hex_file_should_read_1_line_of_data(void){
 
 void test_verifyHexLine_with_correct_check_sum_should_return_1(void){
 
-  char *data = (":020000040800F2\n");
+  char *data = ":020000040800F2\n";
 
-  int SumOfLine = verifyHexLine(data);
+  int sumOfLine = verifyHexLine(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((SumOfLine)), (
+  UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((sumOfLine)), (
 
  ((void *)0)
 
@@ -72,13 +72,13 @@ void test_verifyHexLine_with_correct_check_sum_should_return_1(void){
 
 void test_verifyHexLine_with_wrong_check_sum_should_return_0(void){
 
-  char *data = (":020000040800F3\n");
+  char *data = ":020000040800F3\n";
 
-  int SumOfLine = verifyHexLine(data);
+  int sumOfLine = verifyHexLine(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((SumOfLine)), (
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((sumOfLine)), (
 
  ((void *)0)
 
@@ -90,13 +90,13 @@ void test_verifyHexLine_with_wrong_check_sum_should_return_0(void){
 
 void test_verifyHexLine_with_wrong_Checksum_should_return_0(void){
 
-  char *data = (":021E\n");
+  char *data = ":021E\n";
 
-  int SumOfLine = verifyHexLine(data);
+  int sumOfLine = verifyHexLine(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((SumOfLine)), (
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((sumOfLine)), (
 
  ((void *)0)
 
@@ -108,13 +108,13 @@ void test_verifyHexLine_with_wrong_Checksum_should_return_0(void){
 
 void test_verifyHexLine_with_invalid_checksum_should_return_0(void){
 
-  char *data = (":10F040\n");
+  char *data = ":10F040\n";
 
-  int SumOfLine = verifyHexLine(data);
+  int sumOfLine = verifyHexLine(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((SumOfLine)), (
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((sumOfLine)), (
 
  ((void *)0)
 
@@ -126,21 +126,23 @@ void test_verifyHexLine_with_invalid_checksum_should_return_0(void){
 
 void test_convert_ascii_digits_to_string_of_number_should_retrun_data(void){
 
-  char *data = (":1030C0\n");
+  char *data = ":1030C0\n";
 
   uint8_t expectedArray[3] = {0x10, 0x30, 0xC0};
 
 
 
-  uint8_t *StrOfNum = convertHexLineToStrOfNum(data);
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
 
 
 
-  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((StrOfNum)), (UNITY_UINT32)((3)), (
+  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((strOfNum)), (UNITY_UINT32)((3)), (
 
  ((void *)0)
 
  ), (UNITY_UINT)(61), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+  free (strOfNum);
 
 }
 
@@ -148,21 +150,29 @@ void test_convert_ascii_digits_to_string_of_number_should_retrun_data(void){
 
 void test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_number(void){
 
-  char *data = (":100000000050002069010008A9030008AD030008A2\n");
+  char *data = ":100000000050002069010008A9030008AD030008A2\n";
 
-  uint8_t expectedArray[] = {0x10,0x00,0x00,0x00,0x00,0x50,0x00,0x20,0x69,0x01,0x00,0x08,0xA9,0x03,0x00,0x08,0xAD,0x03,0x00,0x08,0xA2};
+  uint8_t expectedArray[] = {
+
+    0x10,0x00,0x00,0x00,0x00,0x50,0x00,0x20,0x69,0x01,
+
+    0x00,0x08,0xA9,0x03,0x00,0x08,0xAD,0x03,0x00,0x08,
+
+    0xA2};
 
 
 
-  uint8_t *StrOfNum = convertHexLineToStrOfNum(data);
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
 
 
 
-  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((StrOfNum)), (UNITY_UINT32)((21)), (
+  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((strOfNum)), (UNITY_UINT32)((21)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(70), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+ ), (UNITY_UINT)(74), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+  free (strOfNum);
 
 }
 
@@ -170,21 +180,21 @@ void test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_
 
 void xtest_wrong_converting_ascii_digits_to_string_of_number_should_throw_exception(void){
 
-  char *data = (":1030C0\n");
+  char *data = ":1030C0\n";
 
   uint8_t expectedArray[3] = {0x20, 0x30, 0xC0};
 
 
 
-  uint8_t *StrOfNum = convertHexLineToStrOfNum(data);
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
 
 
 
-  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((StrOfNum)), (UNITY_UINT32)((3)), (
+  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((strOfNum)), (UNITY_UINT32)((3)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+ ), (UNITY_UINT)(84), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 }
 
@@ -192,21 +202,21 @@ void xtest_wrong_converting_ascii_digits_to_string_of_number_should_throw_except
 
 void test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum(void){
 
-  char *data = (":0C12E2\n");
+  char *data = ":0C12E2\n";
 
-  uint8_t *StrOfNum = convertHexLineToStrOfNum(data);
-
-
-
-  int LineLength = getHexLineLength(StrOfNum);
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0x0C)), (UNITY_INT)((LineLength)), (
+  int lineLength = getHexLineLength(strOfNum);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0x0C)), (UNITY_INT)((lineLength)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(88), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -214,20 +224,172 @@ void test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum(void){
 
 void test_getHexLineAddress_should_return_16_bits_of_address_from_strOfNum(void){
 
-  char *data = (":0224620408006C\n");
+  char *data = ":0224620408006C\n";
 
-  uint8_t *StrOfNum = convertHexLineToStrOfNum(data);
-
-
-
-  int LineAddress = getHexLineAddress(StrOfNum);
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
 
 
 
-  UnityAssertEqualNumber((UNITY_INT)((0x2462)), (UNITY_INT)((LineAddress)), (
+  int lineAddress = getHexLineAddress(strOfNum);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0x2462)), (UNITY_INT)((lineAddress)), (
 
  ((void *)0)
 
- ), (UNITY_UINT)(97), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(102), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_getHexLineCode_should_return_thrid_byte_of_data_type_from_strOfNum(void){
+
+  char *data = ":04130C006E2E6300DE\n";
+
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
+
+
+
+  int dataType = getHexLineCode(strOfNum);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0x00)), (UNITY_INT)((dataType)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_getHexLineCode_should_return_data_type_from_3rd_byte_of_strOfNum(void){
+
+  char *data = ":0224620408006C\n";
+
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
+
+
+
+  int dataType = getHexLineCode(strOfNum);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0x04)), (UNITY_INT)((dataType)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(120), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_getHexLineDataByte_should_return_dataByte_from_strOfNum(void){
+
+  char *data = ":0224620408006C\n";
+
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
+
+  int length;
+
+  uint8_t expectedArray[] = {0x08,0x00};
+
+
+
+  uint8_t *dataByte = getHexLineDataByte(strOfNum, &length);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((2)), (UNITY_INT)((length)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(131), UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((dataByte)), (UNITY_UINT32)((length)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(132), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+  freeMemory(dataByte);
+
+}
+
+
+
+void test_getHexLineDataByte_should_return_correct_dataByte_from_strOfNum(void){
+
+  char *data = ":100000000050002069010008A9030008AD030008A2\n";
+
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
+
+  int length;
+
+  uint8_t expectedArray[] = {
+
+    0x00,0x50,0x00,0x20,0x69,0x01,0x00,0x08,
+
+    0xA9,0x03,0x00,0x08,0xAD,0x03,0x00,0x08};
+
+
+
+  uint8_t *dataByte = getHexLineDataByte(strOfNum, &length);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((16)), (UNITY_INT)((length)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(146), UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualIntArray(( const void*)((expectedArray)), ( const void*)((dataByte)), (UNITY_UINT32)((length)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(147), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+
+  freeMemory(dataByte);
+
+}
+
+
+
+void test_getHexLineDataByte_with_0_length_should_return_NULL(void){
+
+  char *data = ":00000001FF";
+
+  uint8_t *strOfNum = convertHexLineToStrOfNum(data);
+
+  int length;
+
+
+
+  uint8_t *dataByte = getHexLineDataByte(strOfNum, &length);
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)((0)), (UNITY_INT)((length)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(158), UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((UNITY_INT)((
+
+ ((void *)0)
+
+ )), (UNITY_INT)((dataByte)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(159), UNITY_DISPLAY_STYLE_INT);
+
+  freeMemory(dataByte);
 
 }

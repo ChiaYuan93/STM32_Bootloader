@@ -44,6 +44,11 @@ extern void test_convert_ascii_digits_to_string_of_number_should_retrun_data(voi
 extern void test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_number(void);
 extern void test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum(void);
 extern void test_getHexLineAddress_should_return_16_bits_of_address_from_strOfNum(void);
+extern void test_getHexLineCode_should_return_thrid_byte_of_data_type_from_strOfNum(void);
+extern void test_getHexLineCode_should_return_data_type_from_3rd_byte_of_strOfNum(void);
+extern void test_getHexLineDataByte_should_return_dataByte_from_strOfNum(void);
+extern void test_getHexLineDataByte_should_return_correct_dataByte_from_strOfNum(void);
+extern void test_getHexLineDataByte_with_0_length_should_return_NULL(void);
 
 
 /*=======Test Reset Option=====*/
@@ -66,9 +71,14 @@ int main(void)
   RUN_TEST(test_verifyHexLine_with_wrong_Checksum_should_return_0, 41);
   RUN_TEST(test_verifyHexLine_with_invalid_checksum_should_return_0, 48);
   RUN_TEST(test_convert_ascii_digits_to_string_of_number_should_retrun_data, 55);
-  RUN_TEST(test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_number, 64);
-  RUN_TEST(test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum, 82);
-  RUN_TEST(test_getHexLineAddress_should_return_16_bits_of_address_from_strOfNum, 91);
+  RUN_TEST(test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_number, 65);
+  RUN_TEST(test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum, 87);
+  RUN_TEST(test_getHexLineAddress_should_return_16_bits_of_address_from_strOfNum, 96);
+  RUN_TEST(test_getHexLineCode_should_return_thrid_byte_of_data_type_from_strOfNum, 105);
+  RUN_TEST(test_getHexLineCode_should_return_data_type_from_3rd_byte_of_strOfNum, 114);
+  RUN_TEST(test_getHexLineDataByte_should_return_dataByte_from_strOfNum, 123);
+  RUN_TEST(test_getHexLineDataByte_should_return_correct_dataByte_from_strOfNum, 136);
+  RUN_TEST(test_getHexLineDataByte_with_0_length_should_return_NULL, 151);
 
   return (UnityEnd());
 }

@@ -25,19 +25,34 @@
   :line: 55
   :message: ''
 - :test: test_convertHexLineToStrOfNum_with_full_ascii_data_should_return_string_of_number
-  :line: 64
+  :line: 65
   :message: ''
 - :test: test_getHexLineLength_should_return_first_byte_of_data_from_strOfNum
-  :line: 82
+  :line: 87
   :message: ''
 - :test: test_getHexLineAddress_should_return_16_bits_of_address_from_strOfNum
-  :line: 91
+  :line: 96
+  :message: ''
+- :test: test_getHexLineCode_should_return_thrid_byte_of_data_type_from_strOfNum
+  :line: 105
+  :message: ''
+- :test: test_getHexLineCode_should_return_data_type_from_3rd_byte_of_strOfNum
+  :line: 114
+  :message: ''
+- :test: test_getHexLineDataByte_should_return_dataByte_from_strOfNum
+  :line: 123
+  :message: ''
+- :test: test_getHexLineDataByte_should_return_correct_dataByte_from_strOfNum
+  :line: 136
+  :message: ''
+- :test: test_getHexLineDataByte_with_0_length_should_return_NULL
+  :line: 151
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 10
-  :passed: 10
+  :total: 15
+  :passed: 15
   :failed: 0
   :ignored: 0
 :stdout: []
