@@ -1,3 +1,7 @@
+# For Ceedling (Test)
+build/*
+!build/Readme.txt
+
+# For SW4STM32
 Debug/*
-Src/Backup/*
-Inc/Backup/*
+!Debug/*.mk
