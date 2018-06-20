@@ -5,6 +5,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-void flashErasePage(uint8_t eraseAddress);
+uint8_t flashErasePage(uint8_t eraseAddress);
 
 #endif // SerialCom_H

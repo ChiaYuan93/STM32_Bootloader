@@ -13,7 +13,7 @@ void test_flashErasePage_to_combine_in_specific_pattern(){
   uint8_t address = 0x1234567890;
   int numberOfPages = 1;
   
-  flashErasePage(eraseAddress);
+  uint8_t data = flashErasePage(eraseAddress);
   
   TEST_ASSERT_EQUAL_STRING("015123456789001", data);
 }

@@ -6,7 +6,7 @@
 #include <string.h>
 #include "CException.h"
 
-void flashErasePage(uint8_t eraseAddress){
+uint8_t flashErasePage(uint8_t eraseAddress){
   uint8_t *data;
   int *length;
   data = malloc(*length);
