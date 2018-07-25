@@ -43,8 +43,7 @@ void test_serial_communication_given_success_should_transmit_data(void){
   TEST_ASSERT_EQUAL(0xAD, FlashMemory[startAddress+24]);  
   TEST_ASSERT_EQUAL(0x03, FlashMemory[startAddress+26]);  
   TEST_ASSERT_EQUAL(0x00, FlashMemory[startAddress+28]);  
-  TEST_ASSERT_EQUAL(0x08, FlashMemory[startAddress+30]);    
-	
+  TEST_ASSERT_EQUAL(0x08, FlashMemory[startAddress+30]);    	
 }
 
 void xtest_serial_communication_given_success_expect_transmit_data(void){
@@ -83,7 +82,7 @@ void xtest_serial_communication_given_FAIL_should_not_transmit_data(void){
   uint8_t *strOfNum = convertHexLineToStrOfNum(HexLine);
   uint8_t *dataByte = getHexLineDataByte(strOfNum, &length);
   //int status = getReceiveStatus_Expect(FAIL);
-  // getTransmitData_Expect (startAddress, dataByte, &length);
+  //getTransmitData_Expect (startAddress, dataByte, &length);
   serialComm(SUCCESS, PROGRAM_BYTEWORD, startAddress, dataByte, &length);
   	
 }

@@ -1,0 +1,115 @@
+13:48:58 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\cycha\OneDrive\Desktop\stm32Bootloader\stm32Bootloader\Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'flash_unlock':
+../Src/main.c:214:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   HAL_StatusTypeDef status = HAL_OK;
+                     ^~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: stm32Bootloader.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F103C8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "stm32Bootloader.elf" @"objects.list"   -lm
+Finished building target: stm32Bootloader.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "stm32Bootloader.elf" "stm32Bootloader.hex"
+arm-none-eabi-size "stm32Bootloader.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3752	     20	   1572	   5344	   14e0	stm32Bootloader.elf
+ 
+13:49:06 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+make: Nothing to be done for 'all'.
+13:49:59 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\cycha\OneDrive\Desktop\stm32Bootloader\stm32Bootloader\Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:104:12: warning: unused variable 'inputData' [-Wunused-variable]
+   uint32_t inputData = 0x12345678;
+            ^~~~~~~~~
+../Src/main.c:103:12: warning: unused variable 'inputAddress' [-Wunused-variable]
+   uint32_t inputAddress = 0x08004000;
+            ^~~~~~~~~~~~
+../Src/main.c: In function 'flash_unlock':
+../Src/main.c:214:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   HAL_StatusTypeDef status = HAL_OK;
+                     ^~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: stm32Bootloader.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F103C8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "stm32Bootloader.elf" @"objects.list"   -lm
+Finished building target: stm32Bootloader.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "stm32Bootloader.elf" "stm32Bootloader.hex"
+arm-none-eabi-size "stm32Bootloader.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3652	     20	   1572	   5244	   147c	stm32Bootloader.elf
+ 
+13:50:31 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\cycha\OneDrive\Desktop\stm32Bootloader\stm32Bootloader\Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'flash_unlock':
+../Src/main.c:214:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   HAL_StatusTypeDef status = HAL_OK;
+                     ^~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: stm32Bootloader.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F103C8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "stm32Bootloader.elf" @"objects.list"   -lm
+Finished building target: stm32Bootloader.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "stm32Bootloader.elf" "stm32Bootloader.hex"
+arm-none-eabi-size "stm32Bootloader.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3716	     20	   1572	   5308	   14bc	stm32Bootloader.elf
+ 
+13:51:49 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+make: Nothing to be done for 'all'.
+13:52:34 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+make: Nothing to be done for 'all'.
+13:54:04 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+make: Nothing to be done for 'all'.
+14:09:12 **** Incremental Build of configuration Debug for project stm32Bootloader ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\cycha\OneDrive\Desktop\stm32Bootloader\stm32Bootloader\Debug
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -DUSE_HAL_DRIVER -DSTM32F103xB -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Device/ST/STM32F1xx/Include" -I"C:/Users/cycha/OneDrive/Desktop/stm32Bootloader/stm32Bootloader/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'flash_unlock':
+../Src/main.c:213:21: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   HAL_StatusTypeDef status = HAL_OK;
+                     ^~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: stm32Bootloader.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F103C8Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "stm32Bootloader.elf" @"objects.list"   -lm
+Finished building target: stm32Bootloader.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "stm32Bootloader.elf" "stm32Bootloader.hex"
+arm-none-eabi-size "stm32Bootloader.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3716	     20	   1572	   5308	   14bc	stm32Bootloader.elf
+ 
