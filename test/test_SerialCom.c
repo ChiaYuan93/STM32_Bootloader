@@ -47,7 +47,7 @@ void test_serial_communication_given_success_should_transmit_data(void){
 	
 }
 
-void test_serial_communication_given_success_expect_transmit_data(void){
+void xtest_serial_communication_given_success_expect_transmit_data(void){
   int PROGRAM_WORD = 1;
   int PROGRAM_HALFWORD = 2;
   int PROGRAM_BYTEWORD = 3;
@@ -70,6 +70,12 @@ void test_serial_communication_given_success_expect_transmit_data(void){
 }
 
 void xtest_serial_communication_given_FAIL_should_not_transmit_data(void){
+  int PROGRAM_WORD = 1;
+  int PROGRAM_HALFWORD = 2;
+  int PROGRAM_BYTEWORD = 3;
+  int FAIL = 0;
+  int SUCCESS = 1;
+  
   char *HexLine = ":100000000050002069010008A9030008AD030008A2\n";
   int length;
   uint32_t startAddress = 0x08040000;
